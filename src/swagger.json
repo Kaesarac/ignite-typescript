@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "Ignite practice API",
+        "description": "This is a Practice API, used only for studying.",
+        "version": "1.0.0",
+        "contact": {
+            "email": "ao@ghast.gov.br"
+        }
+    },
+    "paths":{
+        "/categories":{
+            "post":{
+                "tags": ["Category"],
+                "summary": "Creates a Category",
+                "description": "Create a new Category ",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example":{
+                                    "name": "category name sample",
+                                    "description": "category description sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Created"
+                    },
+                    "500":{
+                        "description": "Category already exists."
+                    }
+                }
+            },
+            "get":{
+                "tags": ["Category"],
+                "summary": "List all categories",
+                "description": "List all categories",
+                "responses": {
+                    "200":{
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema":{
+                                    "type":"object",
+                                    "properties":{
+                                        "name":{
+                                            "type": "string"
+                                        },
+                                        "description":{
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
